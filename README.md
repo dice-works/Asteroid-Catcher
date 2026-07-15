@@ -10,7 +10,7 @@ To raise your score, catch green asteroids while dodging the red ones! Use the s
 - Color blindness mode
 
 ## How to run:
-Download the .exe for Windows, or the x86_64 executable for Linux. Simply run it to start the game.
+Download the .exe for Windows, or the x86_64 executable for Linux. Simply run the executable to start the game.
 
 ## Post-Release Note:
 I found the original scratch game I made, that this game was based on! 
