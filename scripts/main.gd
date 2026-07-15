@@ -8,7 +8,6 @@ func _show_menu() -> void:
 	Signalbus.play_idle_music.emit()
 
 func _spawn_spawner() -> void:
-	Signalbus.play_select_sound.emit()
 	var spawnerInstance = preload("res://scenes/spawner.tscn").instantiate()
 	add_child(spawnerInstance)
 	Signalbus.play_start_music.emit()
@@ -29,8 +28,7 @@ func _back_to_menu() -> void:
 	_show_menu()
 	
 func _enter_tutorial() -> void:
-	Signalbus.play_select_sound.emit()
-	var tutorialInstance = preload("res://tutorial/tutorial.tscn").instantiate()
+	var tutorialInstance = preload("res://scenes/tutorial.tscn").instantiate()
 	add_child(tutorialInstance)
 	
 func _ready() -> void:
@@ -45,7 +43,6 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Fullscreen") && toggledFullscreen == false:
 		toggledFullscreen = true
 		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_FULLSCREEN)
-		print(DisplayServer.window_get_mode())
 	elif Input.is_action_just_pressed("Fullscreen"):
 		toggledFullscreen = false
 		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_WINDOWED)

@@ -4,16 +4,16 @@ const padding_x = 200
 const padding_y = 28
 var asteroidPool = []
 var badAsteroidPool = []
+var tutorial_mode_enabled:bool = false
 
 func _instantiate_game() -> void:
 	var playerInstance = preload("res://scenes/Player.tscn").instantiate()
 	add_child(playerInstance)
-	var scoreboardInstance = preload("res://scenes/scoreboard.tscn").instantiate()
-	add_child(scoreboardInstance)
-	var difficultyInstance = preload("res://scenes/difficulty_text.tscn").instantiate()
-	add_child(difficultyInstance)
 	var backgroundInstance = preload("res://scenes/background.tscn").instantiate()
 	add_child(backgroundInstance)
+	if not tutorial_mode_enabled:
+		var scoreboardInstance = preload("res://scenes/scoreboard.tscn").instantiate()
+		add_child(scoreboardInstance)
 	
 func _instantiate_asteroid_pool() -> void:
 	for i in range(5):
@@ -36,6 +36,9 @@ func _spawn_asteroid():
 		asteroid.visible = true
 		asteroid.should_process = true
 		asteroid.can_be_catched = false
+		asteroid.speed = 200
+		if tutorial_mode_enabled:
+			asteroid.add_to_group("Tutorial")
 		break
 
 func _spawn_bad_asteroid():
@@ -47,6 +50,8 @@ func _spawn_bad_asteroid():
 		badAsteroid.visible = true
 		badAsteroid.should_process = true
 		badAsteroid.speed = 200
+		if tutorial_mode_enabled:
+			badAsteroid.add_to_group("Tutorial")
 		break
 	
 func _return_asteroid_to_pool(asteroid):
@@ -54,11 +59,20 @@ func _return_asteroid_to_pool(asteroid):
 	asteroid.should_process = false
 	asteroid.position.y = get_viewport_rect().size.y * 2
 	
-func _ready() -> void:
+func _setup_timer_signals():
 	Signalbus.start_spawn_timer.emit()
-	$SpawnTimer/AsteroidTimer.timeout.connect(_spawn_asteroid)
-	$SpawnTimer/BadAsteroidTimer.timeout.connect(_spawn_bad_asteroid)
-	Signalbus.return_asteroid_to_pool.connect(_return_asteroid_to_pool)
-	Signalbus.start_elapsed_timer.emit()
-	_instantiate_game()
+	Signalbus.start_round_timer.emit()
+	get_node("/root/Timerhandler/AsteroidTimer").timeout.connect(_spawn_asteroid)
+	get_node("/root/Timerhandler/BadAsteroidTimer").timeout.connect(_spawn_bad_asteroid)
+	
+func _check_if_tutorial_mode():
+	if not get_parent().name == "Tutorial":
+		_setup_timer_signals()
+	else:
+		tutorial_mode_enabled = true
+	
+func _ready() -> void:
 	_instantiate_asteroid_pool()
+	Signalbus.return_asteroid_to_pool.connect(_return_asteroid_to_pool)
+	_check_if_tutorial_mode()
+	_instantiate_game()

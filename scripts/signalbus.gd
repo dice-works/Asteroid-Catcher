@@ -30,14 +30,14 @@ signal change_player_sprite_mouth(state: String)
 # Tutorial
 signal enter_tutorial()
 signal tutorial_asteroid_collected()
-signal tutorial_asteroid_dodged()
-signal tutorial_dodge_failed()
+signal tutorial_asteroid_missed()
+signal tutorial_badAsteroid_dodged()
 
 # Misc
 signal start_spawn_timer()
-signal start_elapsed_timer()
-signal increase_difficulty()
+signal start_round_timer()
 
-func _asteroid_in_player_outer_collision():
+# functions
+func _asteroid_in_player_outer_collision(asteroid):
 	change_player_sprite_mouth.emit("open")
-	
+	trigger_mouth.emit(asteroid)

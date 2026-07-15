@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvm5w83w8vw6c"]
+[gd_scene format=3 uid="uid://bvm5w83w8vw6c"]
 
-[ext_resource type="Script" uid="uid://b2ibbgj7qrae8" path="res://tutorial/tutorial.gd" id="1_c13y7"]
-[ext_resource type="FontFile" uid="uid://dc5qmu3hkmfvw" path="res://textures_and_audios/MR ROBOT.ttf" id="2_8ho6b"]
+[ext_resource type="Script" uid="uid://b2ibbgj7qrae8" path="res://scripts/tutorial_director.gd" id="1_8ho6b"]
+[ext_resource type="FontFile" uid="uid://dc5qmu3hkmfvw" path="res://textures_and_audios/MR ROBOT.ttf" id="2_ph3nu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ph3nu"]
 bg_color = Color(0.32941177, 0.75686276, 0.49019608, 0.47058824)
@@ -11,38 +11,38 @@ Label/colors/font_color = Color(0.32941177, 0.75686276, 0.49019608, 1)
 Label/colors/font_outline_color = Color(0.05490196, 0.4117647, 0.18039216, 1)
 Label/constants/outline_size = 10
 Label/font_sizes/font_size = 45
-Label/fonts/font = ExtResource("2_8ho6b")
+Label/fonts/font = ExtResource("2_ph3nu")
 Label/styles/normal = SubResource("StyleBoxFlat_ph3nu")
 
 [sub_resource type="LabelSettings" id="LabelSettings_8ho6b"]
-font = ExtResource("2_8ho6b")
+font = ExtResource("2_ph3nu")
 font_size = 40
 font_color = Color(0.32941177, 0.75686276, 0.49019608, 1)
 outline_size = 15
 outline_color = Color(0.05490196, 0.4117647, 0.18039216, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_burua"]
-font = ExtResource("2_8ho6b")
+font = ExtResource("2_ph3nu")
 font_size = 40
 font_color = Color(0.87058824, 0.4862745, 0.4392157, 1)
 outline_size = 15
 outline_color = Color(0.50980395, 0.18039216, 0.14117648, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vy6qu"]
-font = ExtResource("2_8ho6b")
+font = ExtResource("2_ph3nu")
 font_size = 20
 font_color = Color(0.32941177, 0.75686276, 0.49019608, 1)
 outline_size = 8
 outline_color = Color(0.05490196, 0.4117647, 0.18039216, 1)
 
-[node name="Tutorial" type="Node2D"]
+[node name="Tutorial" type="Node2D" unique_id=1701758386]
 process_mode = 3
-script = ExtResource("1_c13y7")
+script = ExtResource("1_8ho6b")
 
-[node name="UpIcon" type="CanvasLayer" parent="."]
+[node name="UpIcon" type="CanvasLayer" parent="." unique_id=1214244433]
 visible = false
 
-[node name="Label" type="Label" parent="UpIcon"]
+[node name="Label" type="Label" parent="UpIcon" unique_id=1599684648]
 offset_left = 797.0
 offset_top = 114.0
 offset_right = 854.0
@@ -52,14 +52,14 @@ text = "W"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="ColorRect" type="ColorRect" parent="UpIcon"]
+[node name="ColorRect" type="ColorRect" parent="UpIcon" unique_id=1259760357]
 offset_left = 821.0
 offset_top = 57.0
 offset_right = 826.0
 offset_bottom = 106.0
 color = Color(0.32941177, 0.75686276, 0.49019608, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="UpIcon"]
+[node name="ColorRect2" type="ColorRect" parent="UpIcon" unique_id=370102945]
 offset_left = 821.3299
 offset_top = 57.010174
 offset_right = 825.40454
@@ -67,7 +67,7 @@ offset_bottom = 87.4308
 rotation = 0.52456546
 color = Color(0.32941177, 0.75686276, 0.49019608, 1)
 
-[node name="ColorRect3" type="ColorRect" parent="UpIcon"]
+[node name="ColorRect3" type="ColorRect" parent="UpIcon" unique_id=1105394936]
 offset_left = 822.0
 offset_top = 58.999992
 offset_right = 826.07465
@@ -75,10 +75,10 @@ offset_bottom = 89.42062
 rotation = -0.52534413
 color = Color(0.32941177, 0.75686276, 0.49019608, 1)
 
-[node name="DownIcon" type="CanvasLayer" parent="."]
+[node name="DownIcon" type="CanvasLayer" parent="." unique_id=2007033789]
 visible = false
 
-[node name="Label" type="Label" parent="DownIcon"]
+[node name="Label" type="Label" parent="DownIcon" unique_id=600824255]
 offset_left = 794.0
 offset_top = 433.0435
 offset_right = 851.0
@@ -89,7 +89,7 @@ horizontal_alignment = 1
 vertical_alignment = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect" type="ColorRect" parent="DownIcon"]
+[node name="ColorRect" type="ColorRect" parent="DownIcon" unique_id=388797908]
 offset_left = 823.0
 offset_top = 540.0
 offset_right = 828.0
@@ -97,7 +97,7 @@ offset_bottom = 589.0
 rotation = 3.1415927
 color = Color(0.32941177, 0.75686276, 0.49019608, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="DownIcon"]
+[node name="ColorRect2" type="ColorRect" parent="DownIcon" unique_id=1408077151]
 offset_left = 823.0
 offset_top = 540.0
 offset_right = 827.07465
@@ -105,7 +105,7 @@ offset_bottom = 570.42065
 rotation = 3.4522612
 color = Color(0.32941177, 0.75686276, 0.49019608, 1)
 
-[node name="ColorRect3" type="ColorRect" parent="DownIcon"]
+[node name="ColorRect3" type="ColorRect" parent="DownIcon" unique_id=769063464]
 offset_left = 822.00006
 offset_top = 538.0
 offset_right = 826.0747
@@ -113,10 +113,10 @@ offset_bottom = 568.42065
 rotation = 2.7925267
 color = Color(0.32941177, 0.75686276, 0.49019608, 1)
 
-[node name="BoostIcon" type="CanvasLayer" parent="."]
+[node name="BoostIcon" type="CanvasLayer" parent="." unique_id=2106084280]
 visible = false
 
-[node name="Label" type="Label" parent="BoostIcon"]
+[node name="Label" type="Label" parent="BoostIcon" unique_id=849202482]
 anchors_preset = -1
 anchor_left = -0.0069444445
 anchor_top = -0.0015432099
@@ -132,10 +132,10 @@ horizontal_alignment = 1
 vertical_alignment = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="FullscreenIcon" type="CanvasLayer" parent="."]
+[node name="FullscreenIcon" type="CanvasLayer" parent="." unique_id=101908661]
 visible = false
 
-[node name="Label" type="Label" parent="FullscreenIcon"]
+[node name="Label" type="Label" parent="FullscreenIcon" unique_id=1500936685]
 offset_left = 588.0
 offset_top = 267.0
 offset_right = 645.0
@@ -145,7 +145,7 @@ text = "F"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="CollectText" type="Label" parent="."]
+[node name="CollectText" type="Label" parent="." unique_id=891696792]
 visible = false
 offset_left = 448.0
 offset_top = 64.0
@@ -156,7 +156,7 @@ label_settings = SubResource("LabelSettings_8ho6b")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DodgeText" type="Label" parent="."]
+[node name="DodgeText" type="Label" parent="." unique_id=1334920311]
 visible = false
 offset_left = 448.0
 offset_top = 64.0
@@ -167,14 +167,14 @@ label_settings = SubResource("LabelSettings_burua")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DodgeFailOverlay" type="ColorRect" parent="."]
+[node name="DodgeFailOverlay" type="ColorRect" parent="." unique_id=84784259]
 visible = false
 z_index = 2
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.50980395, 0.18039216, 0.14117648, 0.31764707)
 
-[node name="GoodJobText" type="Label" parent="."]
+[node name="GoodJobText" type="Label" parent="." unique_id=2094099876]
 visible = false
 offset_left = 448.0
 offset_top = 64.0
@@ -185,7 +185,7 @@ label_settings = SubResource("LabelSettings_8ho6b")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ReturningtoMenuText" type="Label" parent="."]
+[node name="ReturningtoMenuText" type="Label" parent="." unique_id=465610773]
 visible = false
 offset_left = 347.0
 offset_top = 186.0

@@ -1,15 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://wpwj53oot3eh"]
+[gd_scene format=3 uid="uid://wpwj53oot3eh"]
 
 [ext_resource type="Script" uid="uid://fp5je6516rye" path="res://scripts/spawner.gd" id="1_2vbf6"]
-[ext_resource type="Script" uid="uid://duep5qoljjnm0" path="res://scripts/spawn_timer.gd" id="2_ik2nu"]
 
-[node name="Spawner" type="Node2D"]
+[node name="Spawner" type="Node2D" unique_id=133564446]
 process_mode = 1
 script = ExtResource("1_2vbf6")
-
-[node name="SpawnTimer" type="Node" parent="."]
-script = ExtResource("2_ik2nu")
-
-[node name="AsteroidTimer" type="Timer" parent="SpawnTimer"]
-
-[node name="BadAsteroidTimer" type="Timer" parent="SpawnTimer"]

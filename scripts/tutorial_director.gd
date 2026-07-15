@@ -11,15 +11,13 @@ func _show_move_keys() -> void:
 	
 func _collect_asteroid() -> void:
 	$CollectText.visible = true
-	var asteroid = preload("res://tutorial/tutorialAsteroid.tscn").instantiate()
-	add_child(asteroid)
+	get_node("Spawner")._spawn_asteroid()
 
 func _dodge_asteroid() -> void:
 	$CollectText.visible = false
 	await get_tree().create_timer(1).timeout
 	$DodgeText.visible = true
-	var badAsteroid = preload("res://tutorial/tutorialBadAsteroid.tscn").instantiate()
-	add_child(badAsteroid)
+	get_node("Spawner")._spawn_bad_asteroid()
 	
 func _dodge_failed() -> void:
 	$DodgeFailOverlay.visible = true
@@ -28,6 +26,7 @@ func _dodge_failed() -> void:
 	await get_tree().create_timer(1).timeout
 	get_tree().paused = false
 	$DodgeFailOverlay.visible = false
+	_dodge_asteroid()
 	
 func _dodge_success() -> void:
 	$DodgeText.visible = false
@@ -37,12 +36,11 @@ func _dodge_success() -> void:
 	Signalbus.back_to_menu.emit()
 	
 func _ready() -> void:
-	var playerInstance = preload("res://scenes/Player.tscn").instantiate()
-	add_child(playerInstance)
-	var backgroundInstance = preload("res://scenes/background.tscn").instantiate()
-	add_child(backgroundInstance)
+	var spawnerInstance = preload("res://scenes/spawner.tscn").instantiate()
+	add_child(spawnerInstance)
 	await _show_move_keys()
 	_collect_asteroid()
+	Signalbus.tutorial_asteroid_missed.connect(_collect_asteroid)
 	Signalbus.tutorial_asteroid_collected.connect(_dodge_asteroid)
-	Signalbus.tutorial_dodge_failed.connect(_dodge_failed)
-	Signalbus.tutorial_asteroid_dodged.connect(_dodge_success)
+	Signalbus.tutorial_badAsteroid_dodged.connect(_dodge_success)
+	Signalbus.play_death_sound.connect(_dodge_failed)

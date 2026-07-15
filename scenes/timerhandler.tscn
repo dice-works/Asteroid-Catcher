@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://broi37mtlxiy7"]
+
+[ext_resource type="Script" uid="uid://duep5qoljjnm0" path="res://scripts/timerhandler.gd" id="1_k3jf7"]
+
+[node name="TimerHandler" type="Node" unique_id=368611576]
+script = ExtResource("1_k3jf7")
+
+[node name="AsteroidTimer" type="Timer" parent="." unique_id=221768757]
+
+[node name="BadAsteroidTimer" type="Timer" parent="." unique_id=1576863675]
