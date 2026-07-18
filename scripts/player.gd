@@ -15,39 +15,43 @@ func _player_movement_logic() -> void:
 
 func _on_outerCollision_entered(area: Area2D) -> void:
 	var asteroid = area.get_parent()
-	if not asteroid.is_in_group("BadAsteroids"):
-		Signalbus._asteroid_in_player_outer_collision(asteroid)
+	if asteroid.is_in_group("Asteroid"):
+		Signalbus.asteroid_in_players_reach.emit(asteroid)
+		Spritehandler.change_player_sprite_mouth("open")
 
 func _on_innerCollision_entered(area: Area2D) -> void:
 	var asteroid = area.get_parent()
-	Signalbus.check_trigger.emit(asteroid)
+	if asteroid.is_in_group("Asteroid") and asteroid.can_be_catched:
+		_catch_asteroid(asteroid)
+		Spritehandler.change_player_sprite_mouth("closed")
 	
 func _on_badCollision_entered(area: Area2D) -> void:
-	if area.get_parent().is_in_group("BadAsteroids"):
-		Signalbus.play_death_sound.emit()
-		Signalbus.return_asteroid_to_pool.emit(area.get_parent())
-		if not area.get_parent().is_in_group("Tutorial"):
-			Signalbus.game_over.emit()
+	var asteroid = area.get_parent()
+	if asteroid.is_in_group("BadAsteroid"):
+		Audiohandler._play_death_sound()
+		Signalbus.return_asteroid_to_pool.emit(asteroid)
+		if asteroid.is_in_group("Tutorial"):
+			Signalbus.tutorial_hit_by_badAsteroid.emit()
+		else:
+			Signalbus.round_ended.emit()
 
-func _eat_asteroid(asteroid) -> void:
-	Signalbus.play_eat_sound.emit()
-	Signalbus.change_player_sprite_mouth.emit("closed")
-	score += 1
+func _catch_asteroid(asteroid) -> void:
+	Audiohandler._play_eat_sound()
 	Signalbus.return_asteroid_to_pool.emit(asteroid)
-	if not asteroid.is_in_group("Tutorial"):
-		Signalbus.scored_point.emit(score)
-	else:
+	Signalbus.player_caught_asteroid.emit()
+	if asteroid.is_in_group("Tutorial"):
 		Signalbus.tutorial_asteroid_collected.emit()
+
+func _position_player_on_right_side() -> void:
+	$Walls.top_level = true
+	position.y = get_viewport_rect().size.y / 2
+	position.x = get_viewport_rect().size.x - ($WallCollider.shape.get_rect().size.x / 2)
 		
 func _ready() -> void:
 	$OuterCollision.area_entered.connect(_on_outerCollision_entered)
 	$InnerCollision.area_entered.connect(_on_innerCollision_entered)
 	$BadCollision.area_entered.connect(_on_badCollision_entered)
-	Signalbus.eat_asteroid.connect(_eat_asteroid)
-	
-	$Walls.top_level = true
-	position.y = get_viewport_rect().size.y / 2
-	position.x = get_viewport_rect().size.x - ($WallCollider.shape.get_rect().size.x / 2)
+	_position_player_on_right_side()
 	
 func _process(_delta: float) -> void:
 	_player_movement_logic()

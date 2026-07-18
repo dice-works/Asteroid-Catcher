@@ -12,18 +12,12 @@ func _check_color_blindness() -> void:
 	else:
 		$Sprite2D.texture = preload("res://textures_and_audios/asteroid.png")
 
-func _ChangeMouthTrigger(asteroid: Node2D) -> void:
+func _allow_to_be_catched(asteroid: Node2D) -> void:
 	if asteroid == self && can_be_catched == false:
 			can_be_catched = true
 	
-func _CheckMouthTrigger(asteroid: Node2D) -> void:
-	if asteroid == self && can_be_catched == true:
-		Signalbus.eat_asteroid.emit(self)
-	
-	
 func _ready() -> void:
-	Signalbus.trigger_mouth.connect(_ChangeMouthTrigger)
-	Signalbus.check_trigger.connect(_CheckMouthTrigger)
+	Signalbus.asteroid_in_players_reach.connect(_allow_to_be_catched)
 	_check_color_blindness()
 
 func _process(delta: float) -> void:

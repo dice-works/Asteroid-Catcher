@@ -1,13 +1,13 @@
 extends Control
 
 func _exit_game() -> void:
-	Signalbus.exit_game.emit()
+	Director._exit_game()
 
 func _back_to_menu() -> void:
-	Signalbus.play_select_sound.emit()
-	Signalbus.back_to_menu.emit()
+	Audiohandler._play_select_sound()
+	Director._setup_menu()
 
 func _ready() -> void:
 	$ExitButton/Button.pressed.connect(_exit_game)
 	$MenuButton/Button.pressed.connect(_back_to_menu)
-	$HighscoreText/Label.text = ("Highscore: " + str(HighscoreManager.highscore))
+	$HighscoreText/Label.text = ("Highscore: " + str(Scorehandler.highscore))

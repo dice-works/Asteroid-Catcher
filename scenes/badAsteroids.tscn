@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ysfi"]
 size = Vector2(49, 49)
 
-[node name="BadAsteroid" type="Node2D" unique_id=637874344 groups=["BadAsteroids"]]
+[node name="BadAsteroid" type="Node2D" unique_id=637874344 groups=["BadAsteroid"]]
 process_mode = 1
 script = ExtResource("1_fllvj")
 

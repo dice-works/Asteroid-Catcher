@@ -1,5 +1,7 @@
 extends Node2D
 
+var Spawner:Node2D
+
 func _show_move_keys() -> void:
 	$UpIcon.visible = true
 	$DownIcon.visible = true
@@ -11,17 +13,16 @@ func _show_move_keys() -> void:
 	
 func _collect_asteroid() -> void:
 	$CollectText.visible = true
-	get_node("Spawner")._spawn_asteroid()
+	Spawner._spawn_asteroid()
 
 func _dodge_asteroid() -> void:
 	$CollectText.visible = false
 	await get_tree().create_timer(1).timeout
 	$DodgeText.visible = true
-	get_node("Spawner")._spawn_bad_asteroid()
+	Spawner._spawn_bad_asteroid()
 	
 func _dodge_failed() -> void:
 	$DodgeFailOverlay.visible = true
-	Audiohandler._play_death_sound()
 	get_tree().paused = true
 	await get_tree().create_timer(1).timeout
 	get_tree().paused = false
@@ -33,14 +34,16 @@ func _dodge_success() -> void:
 	$GoodJobText.visible = true
 	$ReturningtoMenuText.visible = true
 	await get_tree().create_timer(3).timeout
-	Signalbus.back_to_menu.emit()
+	Director.in_tutorial_mode = false
+	Director._setup_menu()
 	
 func _ready() -> void:
-	var spawnerInstance = preload("res://scenes/spawner.tscn").instantiate()
-	add_child(spawnerInstance)
+	Director.in_tutorial_mode = true
+	Director._spawn_spawner()
+	Spawner = get_node("/root/Director/Spawner")
 	await _show_move_keys()
 	_collect_asteroid()
 	Signalbus.tutorial_asteroid_missed.connect(_collect_asteroid)
 	Signalbus.tutorial_asteroid_collected.connect(_dodge_asteroid)
 	Signalbus.tutorial_badAsteroid_dodged.connect(_dodge_success)
-	Signalbus.play_death_sound.connect(_dodge_failed)
+	Signalbus.tutorial_hit_by_badAsteroid.connect(_dodge_failed)

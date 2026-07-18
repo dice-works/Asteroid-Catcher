@@ -7,13 +7,11 @@ var badAsteroidPool = []
 var tutorial_mode_enabled:bool = false
 
 func _instantiate_game() -> void:
-	var playerInstance = preload("res://scenes/Player.tscn").instantiate()
-	add_child(playerInstance)
-	var backgroundInstance = preload("res://scenes/background.tscn").instantiate()
-	add_child(backgroundInstance)
+	var player_instance = preload("res://scenes/Player.tscn").instantiate()
+	add_child(player_instance)
 	if not tutorial_mode_enabled:
-		var scoreboardInstance = preload("res://scenes/scoreboard.tscn").instantiate()
-		add_child(scoreboardInstance)
+		var scoreboard_instance = preload("res://scenes/scoreboard.tscn").instantiate()
+		add_child(scoreboard_instance)
 	
 func _instantiate_asteroid_pool() -> void:
 	for i in range(5):
@@ -60,16 +58,14 @@ func _return_asteroid_to_pool(asteroid):
 	asteroid.position.y = get_viewport_rect().size.y * 2
 	
 func _setup_timer_signals():
-	Signalbus.start_spawn_timer.emit()
-	Signalbus.start_round_timer.emit()
 	get_node("/root/Timerhandler/AsteroidTimer").timeout.connect(_spawn_asteroid)
 	get_node("/root/Timerhandler/BadAsteroidTimer").timeout.connect(_spawn_bad_asteroid)
 	
 func _check_if_tutorial_mode():
-	if not get_parent().name == "Tutorial":
-		_setup_timer_signals()
-	else:
+	if Director.in_tutorial_mode:
 		tutorial_mode_enabled = true
+	else:
+		_setup_timer_signals()
 	
 func _ready() -> void:
 	_instantiate_asteroid_pool()

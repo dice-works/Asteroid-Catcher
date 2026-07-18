@@ -40,11 +40,6 @@ func _toggle_music() -> void:
 		$Asteroid_Idle.play()
 
 func _ready() -> void:
-	Signalbus.play_eat_sound.connect(_play_eat_sound)
-	Signalbus.play_death_sound.connect(_play_death_sound)
-	Signalbus.play_select_sound.connect(_play_select_sound)
-	Signalbus.play_idle_music.connect(_play_idle_music)
-	Signalbus.play_start_music.connect(_play_start_music)
-	Signalbus.game_over.connect(_play_idle_music)
-	Signalbus.toggle_music_option.connect(_toggle_music)
+	Signalbus.round_started.connect(_play_start_music)
+	Signalbus.round_ended.connect(_play_idle_music)
 	$Asteroid_Start.finished.connect(_play_main_music)

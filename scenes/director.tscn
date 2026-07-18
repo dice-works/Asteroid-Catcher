@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://3ch885duhlhg"]
+
+[ext_resource type="Script" uid="uid://b0h4ev87p35bc" path="res://scripts/director.gd" id="1_elqb8"]
+
+[node name="Director" type="Node2D" unique_id=1802147287]
+process_mode = 3
+script = ExtResource("1_elqb8")

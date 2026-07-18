@@ -1,8 +1,8 @@
 extends CanvasLayer
 
 
-func change_score(score: int) -> void:
-	$Label.text = "Score: " + str(score)
+func change_score() -> void:
+	$Label.text = "Score: " + str(Scorehandler.score)
 
 func _ready() -> void:
-	Signalbus.scored_point.connect(change_score)
+	Signalbus.player_caught_asteroid.connect(change_score)

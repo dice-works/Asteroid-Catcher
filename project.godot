@@ -15,18 +15,19 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Asteroid Catcher"
-run/main_scene="uid://d2wgydtrq0adv"
+run/main_scene="uid://bjeetonh64tgd"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="uid://c3p7ychnumqbc"
 
 [autoload]
 
 Signalbus="*res://scripts/signalbus.gd"
-HighscoreManager="*res://scripts/highscore_manager.gd"
 Spritehandler="*uid://dq0c0mxsrgdjo"
 Optionshandler="*uid://byj6gyx77rkio"
 Audiohandler="*uid://ddod78ylbup4"
 Timerhandler="*uid://broi37mtlxiy7"
+Scorehandler="*uid://bgekkgx00r800"
+Director="*uid://b0h4ev87p35bc"
 
 [display]
 
@@ -39,8 +40,9 @@ enabled=PackedStringArray()
 
 [global_group]
 
-BadAsteroids=""
 Tutorial=""
+Asteroid=""
+BadAsteroid=""
 
 [input]
 

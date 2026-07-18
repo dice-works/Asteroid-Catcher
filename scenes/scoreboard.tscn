@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bowg0pgho8ejj"]
+[gd_scene format=3 uid="uid://bowg0pgho8ejj"]
 
 [ext_resource type="Script" uid="uid://32bsd1xed06k" path="res://scripts/scoreboard.gd" id="1_ucmtr"]
 [ext_resource type="FontFile" uid="uid://dc5qmu3hkmfvw" path="res://textures_and_audios/MR ROBOT.ttf" id="2_w5fga"]
@@ -10,10 +10,10 @@ font_color = Color(0.32941177, 0.75686276, 0.49019608, 1)
 outline_size = 15
 outline_color = Color(0.05490196, 0.4117647, 0.18039216, 1)
 
-[node name="Scoreboard" type="CanvasLayer"]
+[node name="Scoreboard" type="CanvasLayer" unique_id=1535365299]
 script = ExtResource("1_ucmtr")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=2137541861]
 offset_left = 509.0
 offset_top = 6.0
 offset_right = 670.0
