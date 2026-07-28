@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b1l8jh5nn4osw"]
 
 [ext_resource type="Script" uid="uid://cmlwfxduvaes8" path="res://scripts/bad_asteroids.gd" id="1_fllvj"]
-[ext_resource type="Texture2D" uid="uid://6c73e2k6b7v4" path="res://textures_and_audios/badAsteroid.png" id="2_m4y07"]
+[ext_resource type="Texture2D" uid="uid://6c73e2k6b7v4" path="res://media/visuals/badAsteroid.png" id="2_m4y07"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ysfi"]
 size = Vector2(49, 49)

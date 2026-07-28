@@ -1,5 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://rlfk3fkgtexq"]
 
+[ext_resource type="FontFile" uid="uid://dc5qmu3hkmfvw" path="res://media/visuals/MR ROBOT.ttf" id="1_mbcej"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjb58"]
 bg_color = Color(0.32941177, 0.75686276, 0.49019608, 0.47058824)
 
@@ -16,6 +18,11 @@ border_color = Color(0.05490196, 0.4117647, 0.18039216, 1)
 border_blend = true
 
 [resource]
+Button/colors/font_color = Color(0.32941177, 0.75686276, 0.49019608, 1)
+Button/colors/font_outline_color = Color(0.05490196, 0.4117647, 0.18039216, 1)
+Button/constants/outline_size = 15
+Button/font_sizes/font_size = 35
+Button/fonts/font = ExtResource("1_mbcej")
 Button/styles/hover = SubResource("StyleBoxFlat_vjb58")
 Button/styles/normal = SubResource("StyleBoxFlat_con2f")
 Button/styles/pressed = SubResource("StyleBoxFlat_mhnvy")

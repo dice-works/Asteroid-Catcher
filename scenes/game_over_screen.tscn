@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://p85fqpfkcqw"]
 
 [ext_resource type="Script" uid="uid://dwiw58e2dmh3" path="res://scripts/game_over_screen.gd" id="1_iwahs"]
-[ext_resource type="Texture2D" uid="uid://co55k4t5pkubb" path="res://textures_and_audios/white.png" id="2_61w2s"]
-[ext_resource type="FontFile" uid="uid://dc5qmu3hkmfvw" path="res://textures_and_audios/MR ROBOT.ttf" id="2_cyfkl"]
+[ext_resource type="Texture2D" uid="uid://co55k4t5pkubb" path="res://media/visuals/white.png" id="2_61w2s"]
+[ext_resource type="FontFile" uid="uid://dc5qmu3hkmfvw" path="res://media/visuals/MR ROBOT.ttf" id="2_cyfkl"]
 [ext_resource type="Theme" uid="uid://rlfk3fkgtexq" path="res://scenes/green_button.tres" id="4_xx0b3"]
 [ext_resource type="Theme" uid="uid://cupvrjqols2aq" path="res://scenes/red_button.tres" id="5_5i0af"]
 

@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://ddod78ylbup4"]
 
 [ext_resource type="Script" uid="uid://blmopwogolsc2" path="res://scripts/audiohandler.gd" id="1_vul8i"]
-[ext_resource type="AudioStream" uid="uid://c8npykcqctv0s" path="res://textures_and_audios/Eat1.wav" id="2_0kd47"]
-[ext_resource type="AudioStream" uid="uid://cq08mpwfi3c4i" path="res://textures_and_audios/Eat2.wav" id="3_3icsu"]
-[ext_resource type="AudioStream" uid="uid://cis6iur1bu2tm" path="res://textures_and_audios/Eat3.wav" id="4_4cyod"]
-[ext_resource type="AudioStream" uid="uid://gtr71jtmyfvq" path="res://textures_and_audios/Death.wav" id="5_uhnij"]
-[ext_resource type="AudioStream" uid="uid://olbn2hgdrshx" path="res://textures_and_audios/Select.wav" id="6_8x6jx"]
-[ext_resource type="AudioStream" uid="uid://ddn1jyi0jn6y7" path="res://textures_and_audios/asteroid_idle.ogg" id="7_uk4mw"]
-[ext_resource type="AudioStream" uid="uid://md0uwpuxwev4" path="res://textures_and_audios/asteroid_start.ogg" id="8_ud7hd"]
-[ext_resource type="AudioStream" uid="uid://du0fj0q1gnrkk" path="res://textures_and_audios/asteroid_loop.ogg" id="9_7ihse"]
+[ext_resource type="AudioStream" uid="uid://c8npykcqctv0s" path="res://media/audio/Eat1.wav" id="2_0kd47"]
+[ext_resource type="AudioStream" uid="uid://cq08mpwfi3c4i" path="res://media/audio/Eat2.wav" id="3_3icsu"]
+[ext_resource type="AudioStream" uid="uid://cis6iur1bu2tm" path="res://media/audio/Eat3.wav" id="4_4cyod"]
+[ext_resource type="AudioStream" uid="uid://gtr71jtmyfvq" path="res://media/audio/Death.wav" id="5_uhnij"]
+[ext_resource type="AudioStream" uid="uid://olbn2hgdrshx" path="res://media/audio/Select.wav" id="6_8x6jx"]
+[ext_resource type="AudioStream" uid="uid://ddn1jyi0jn6y7" path="res://media/audio/asteroid_idle.ogg" id="7_uk4mw"]
+[ext_resource type="AudioStream" uid="uid://md0uwpuxwev4" path="res://media/audio/asteroid_start.ogg" id="8_ud7hd"]
+[ext_resource type="AudioStream" uid="uid://du0fj0q1gnrkk" path="res://media/audio/asteroid_loop.ogg" id="9_7ihse"]
 
 [node name="Audiohandler" type="Node" unique_id=1470214679]
 process_mode = 3

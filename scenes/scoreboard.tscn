@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bowg0pgho8ejj"]
 
 [ext_resource type="Script" uid="uid://32bsd1xed06k" path="res://scripts/scoreboard.gd" id="1_ucmtr"]
-[ext_resource type="FontFile" uid="uid://dc5qmu3hkmfvw" path="res://textures_and_audios/MR ROBOT.ttf" id="2_w5fga"]
+[ext_resource type="FontFile" uid="uid://dc5qmu3hkmfvw" path="res://media/visuals/MR ROBOT.ttf" id="2_w5fga"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rarhs"]
 font = ExtResource("2_w5fga")

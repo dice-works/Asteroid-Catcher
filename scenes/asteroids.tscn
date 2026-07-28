@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bqpm7pdgcjbbh"]
 
 [ext_resource type="Script" uid="uid://1rn4xj3r2bn7" path="res://scripts/asteroid.gd" id="1_7ysfi"]
-[ext_resource type="Texture2D" uid="uid://ddkgj1eeymos2" path="res://textures_and_audios/asteroid.png" id="2_1bbsi"]
+[ext_resource type="Texture2D" uid="uid://ddkgj1eeymos2" path="res://media/visuals/asteroid.png" id="2_1bbsi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ysfi"]
 size = Vector2(49, 49)

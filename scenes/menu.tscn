@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://dblhtpse82uii"]
 
 [ext_resource type="Script" uid="uid://ctoeafro02sgl" path="res://scripts/menu.gd" id="1_yqeox"]
-[ext_resource type="FontFile" uid="uid://dc5qmu3hkmfvw" path="res://textures_and_audios/MR ROBOT.ttf" id="2_vjb58"]
-[ext_resource type="Theme" uid="uid://rlfk3fkgtexq" path="res://scenes/green_button.tres" id="3_mhnvy"]
-[ext_resource type="Theme" uid="uid://cupvrjqols2aq" path="res://scenes/red_button.tres" id="4_4ytvr"]
+[ext_resource type="FontFile" uid="uid://dc5qmu3hkmfvw" path="res://media/visuals/MR ROBOT.ttf" id="2_vjb58"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vjb58"]
 font = ExtResource("2_vjb58")
@@ -15,13 +13,6 @@ shadow_size = 30
 shadow_color = Color(0.05490196, 0.4117647, 0.18039216, 1)
 shadow_offset = Vector2(4, 4)
 
-[sub_resource type="LabelSettings" id="LabelSettings_4ytvr"]
-font = ExtResource("2_vjb58")
-font_size = 35
-font_color = Color(0.32941177, 0.75686276, 0.49019608, 1)
-outline_size = 15
-outline_color = Color(0.05490196, 0.4117647, 0.18039216, 1)
-
 [sub_resource type="LabelSettings" id="LabelSettings_yqeox"]
 font = ExtResource("2_vjb58")
 font_size = 25
@@ -29,30 +20,9 @@ font_color = Color(0.32941177, 0.75686276, 0.49019608, 1)
 outline_size = 10
 outline_color = Color(0.05490196, 0.4117647, 0.18039216, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_con2f"]
-font = ExtResource("2_vjb58")
-font_size = 35
-font_color = Color(0.87058824, 0.4862745, 0.4392157, 1)
-outline_size = 15
-outline_color = Color(0.50980395, 0.18039216, 0.14117648, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_mhnvy"]
-font = ExtResource("2_vjb58")
-font_color = Color(0.87058824, 0.4862745, 0.4392157, 1)
-outline_size = 6
-outline_color = Color(0.50980395, 0.18039216, 0.14117648, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhnvy"]
-bg_color = Color(0.07450981, 0.21568628, 0.1254902, 0.47058824)
-
-[sub_resource type="Theme" id="Theme_4ytvr"]
-Button/styles/normal = SubResource("StyleBoxFlat_mhnvy")
-
-[sub_resource type="LabelSettings" id="LabelSettings_g3eks"]
-font = ExtResource("2_vjb58")
-font_color = Color(0.32941177, 0.75686276, 0.49019608, 1)
-outline_size = 6
-outline_color = Color(0.05490196, 0.4117647, 0.18039216, 1)
+[sub_resource type="Theme" id="Theme_7m2n1"]
+RichTextLabel/font_sizes/normal_font_size = 80
+RichTextLabel/fonts/normal_font = null
 
 [node name="Menu" type="Control" unique_id=1004412704]
 layout_mode = 3
@@ -62,6 +32,7 @@ offset_bottom = 40.0
 script = ExtResource("1_yqeox")
 
 [node name="Title" type="CanvasLayer" parent="." unique_id=1202709187]
+visible = false
 
 [node name="Label" type="Label" parent="Title" unique_id=1240148777]
 offset_left = 256.0
@@ -73,26 +44,8 @@ label_settings = SubResource("LabelSettings_vjb58")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlayButton" type="CanvasLayer" parent="." unique_id=920034648]
-
-[node name="Button" type="Button" parent="PlayButton" unique_id=1780811538]
-offset_left = 448.0
-offset_top = 256.0
-offset_right = 704.0
-offset_bottom = 320.0
-theme = ExtResource("3_mhnvy")
-
-[node name="Label" type="Label" parent="PlayButton" unique_id=209315741]
-offset_left = 448.0
-offset_top = 256.0
-offset_right = 704.0
-offset_bottom = 320.0
-text = "Play"
-label_settings = SubResource("LabelSettings_4ytvr")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="HighScoreText" type="CanvasLayer" parent="." unique_id=1984926302]
+visible = false
 
 [node name="Label" type="Label" parent="HighScoreText" unique_id=1978309192]
 offset_left = 448.0
@@ -104,108 +57,23 @@ label_settings = SubResource("LabelSettings_yqeox")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="PlayButton" type="CanvasLayer" parent="." unique_id=920034648]
+
 [node name="ExitButton" type="CanvasLayer" parent="." unique_id=1272587052]
-
-[node name="Button" type="Button" parent="ExitButton" unique_id=932080129]
-offset_left = 448.0
-offset_top = 512.0
-offset_right = 704.0
-offset_bottom = 576.0
-theme = ExtResource("4_4ytvr")
-
-[node name="Label" type="Label" parent="ExitButton" unique_id=1365519170]
-offset_left = 448.0
-offset_top = 512.0
-offset_right = 704.0
-offset_bottom = 576.0
-text = "Exit"
-label_settings = SubResource("LabelSettings_con2f")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="ResetHighscore" type="CanvasLayer" parent="." unique_id=2097350646]
 
-[node name="Button" type="Button" parent="ResetHighscore" unique_id=947920535]
-offset_left = 976.0
-offset_top = 600.0
-offset_right = 1128.0
-offset_bottom = 640.0
-flat = true
-
-[node name="Label" type="Label" parent="ResetHighscore" unique_id=1732709218]
-offset_left = 960.0
-offset_top = 592.0
-offset_right = 1152.0
-offset_bottom = 648.0
-text = "Reset Highscore"
-label_settings = SubResource("LabelSettings_mhnvy")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="TutorialButton" type="CanvasLayer" parent="." unique_id=1745793377]
-
-[node name="Button" type="Button" parent="TutorialButton" unique_id=1905091261]
-offset_left = 448.0
-offset_top = 384.0
-offset_right = 704.0
-offset_bottom = 448.0
-theme = ExtResource("3_mhnvy")
-
-[node name="Label" type="Label" parent="TutorialButton" unique_id=1135261155]
-offset_left = 448.0
-offset_top = 384.0
-offset_right = 704.0
-offset_bottom = 448.0
-text = "Tutorial"
-label_settings = SubResource("LabelSettings_4ytvr")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ColorBlindnessToggle" type="CanvasLayer" parent="." unique_id=1027215908]
-
-[node name="Button" type="Button" parent="ColorBlindnessToggle" unique_id=1584524329]
-offset_top = 600.0
-offset_right = 168.0
-offset_bottom = 632.0
-theme = SubResource("Theme_4ytvr")
-
-[node name="Label" type="Label" parent="ColorBlindnessToggle" unique_id=417640911]
-offset_top = 584.0
-offset_right = 168.0
-offset_bottom = 648.0
-text = "Color Blindess"
-label_settings = SubResource("LabelSettings_g3eks")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="ColorBlindnessToggle" unique_id=1616341627]
-offset_left = 168.0
-offset_top = 600.0
-offset_right = 200.0
-offset_bottom = 632.0
-color = Color(0.50980395, 0.18039216, 0.14117648, 0.47058824)
 
 [node name="MuteMusicToggle" type="CanvasLayer" parent="." unique_id=937846266]
 
-[node name="Button" type="Button" parent="MuteMusicToggle" unique_id=1943814079]
-offset_top = 536.0
-offset_right = 168.0
-offset_bottom = 568.0
-theme = SubResource("Theme_4ytvr")
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="MuteMusicToggle" unique_id=448480027]
-offset_top = 520.0
-offset_right = 168.0
-offset_bottom = 584.0
-text = "Music"
-label_settings = SubResource("LabelSettings_g3eks")
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=811402547]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 270.0
+offset_right = 768.0
+offset_bottom = 391.0
+theme = SubResource("Theme_7m2n1")
+text = "START"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="MuteMusicToggle" unique_id=779232463]
-offset_left = 168.0
-offset_top = 536.0
-offset_right = 200.0
-offset_bottom = 568.0
-color = Color(0.50980395, 0.18039216, 0.14117648, 0.47058824)

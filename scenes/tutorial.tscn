@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bvm5w83w8vw6c"]
 
 [ext_resource type="Script" uid="uid://b2ibbgj7qrae8" path="res://scripts/tutorial_director.gd" id="1_8ho6b"]
-[ext_resource type="Texture2D" uid="uid://dafg3v80ss0i2" path="res://textures_and_audios/asteroid_mouse_xelu.png" id="2_4kmhl"]
-[ext_resource type="FontFile" uid="uid://dc5qmu3hkmfvw" path="res://textures_and_audios/MR ROBOT.ttf" id="2_ph3nu"]
+[ext_resource type="Texture2D" uid="uid://dafg3v80ss0i2" path="res://media/visuals/asteroid_mouse_xelu.png" id="2_4kmhl"]
+[ext_resource type="FontFile" uid="uid://dc5qmu3hkmfvw" path="res://media/visuals/MR ROBOT.ttf" id="2_ph3nu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8ho6b"]
 font = ExtResource("2_ph3nu")
