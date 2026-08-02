@@ -1,28 +1,135 @@
 [gd_scene format=3 uid="uid://dblhtpse82uii"]
 
 [ext_resource type="Script" uid="uid://ctoeafro02sgl" path="res://scripts/menu.gd" id="1_yqeox"]
-[ext_resource type="FontFile" uid="uid://dc5qmu3hkmfvw" path="res://media/visuals/MR ROBOT.ttf" id="2_vjb58"]
+[ext_resource type="Texture2D" uid="uid://cynfl3bpp7suo" path="res://media/visuals/logo-Sheet.png" id="2_con2f"]
+[ext_resource type="FontFile" uid="uid://dfl6lwm7715cu" path="res://media/visuals/fonts/televideo/Televideo.otf" id="3_mhnvy"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_vjb58"]
-font = ExtResource("2_vjb58")
-font_size = 60
-font_color = Color(0.32941177, 0.75686276, 0.49019608, 1)
-outline_size = 10
-outline_color = Color(0.05490196, 0.4117647, 0.18039216, 1)
-shadow_size = 30
-shadow_color = Color(0.05490196, 0.4117647, 0.18039216, 1)
-shadow_offset = Vector2(4, 4)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ytvr"]
+atlas = ExtResource("2_con2f")
+region = Rect2(0, 0, 362, 99)
 
-[sub_resource type="LabelSettings" id="LabelSettings_yqeox"]
-font = ExtResource("2_vjb58")
-font_size = 25
-font_color = Color(0.32941177, 0.75686276, 0.49019608, 1)
-outline_size = 10
-outline_color = Color(0.05490196, 0.4117647, 0.18039216, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3eks"]
+atlas = ExtResource("2_con2f")
+region = Rect2(362, 0, 362, 99)
 
-[sub_resource type="Theme" id="Theme_7m2n1"]
-RichTextLabel/font_sizes/normal_font_size = 80
-RichTextLabel/fonts/normal_font = null
+[sub_resource type="AtlasTexture" id="AtlasTexture_v86rl"]
+atlas = ExtResource("2_con2f")
+region = Rect2(724, 0, 362, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13sgg"]
+atlas = ExtResource("2_con2f")
+region = Rect2(1086, 0, 362, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6lef"]
+atlas = ExtResource("2_con2f")
+region = Rect2(1448, 0, 362, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70i5f"]
+atlas = ExtResource("2_con2f")
+region = Rect2(1810, 0, 362, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj5lg"]
+atlas = ExtResource("2_con2f")
+region = Rect2(2172, 0, 362, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufwb2"]
+atlas = ExtResource("2_con2f")
+region = Rect2(2534, 0, 362, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cdou"]
+atlas = ExtResource("2_con2f")
+region = Rect2(2896, 0, 362, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i42df"]
+atlas = ExtResource("2_con2f")
+region = Rect2(3258, 0, 362, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jp70"]
+atlas = ExtResource("2_con2f")
+region = Rect2(3620, 0, 362, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxgkd"]
+atlas = ExtResource("2_con2f")
+region = Rect2(3982, 0, 362, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6gyw"]
+atlas = ExtResource("2_con2f")
+region = Rect2(4344, 0, 362, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dmrc"]
+atlas = ExtResource("2_con2f")
+region = Rect2(4706, 0, 362, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81l6r"]
+atlas = ExtResource("2_con2f")
+region = Rect2(5068, 0, 362, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsfmq"]
+atlas = ExtResource("2_con2f")
+region = Rect2(5430, 0, 362, 99)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7m2n1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ytvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3eks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v86rl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13sgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6lef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70i5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mj5lg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufwb2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cdou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i42df")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jp70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxgkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6gyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dmrc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81l6r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsfmq")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Theme" id="Theme_cex5h"]
+Label/colors/font_color = Color(0.2627451, 0, 0.40392157, 1)
+Label/colors/font_outline_color = Color(1, 0, 0.3019608, 1)
+Label/constants/outline_size = 8
+Label/font_sizes/font_size = 50
+Label/fonts/font = ExtResource("3_mhnvy")
 
 [node name="Menu" type="Control" unique_id=1004412704]
 layout_mode = 3
@@ -31,49 +138,19 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_yqeox")
 
-[node name="Title" type="CanvasLayer" parent="." unique_id=1202709187]
-visible = false
+[node name="Logo" type="AnimatedSprite2D" parent="." unique_id=1570844250]
+position = Vector2(576, 240)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_7m2n1")
 
-[node name="Label" type="Label" parent="Title" unique_id=1240148777]
-offset_left = 256.0
-offset_top = 24.0
-offset_right = 896.0
-offset_bottom = 216.0
-text = "Asteroid Catcher"
-label_settings = SubResource("LabelSettings_vjb58")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HighScoreText" type="CanvasLayer" parent="." unique_id=1984926302]
-visible = false
-
-[node name="Label" type="Label" parent="HighScoreText" unique_id=1978309192]
-offset_left = 448.0
-offset_top = 200.0
-offset_right = 704.0
-offset_bottom = 248.0
-text = "Highscore: "
-label_settings = SubResource("LabelSettings_yqeox")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PlayButton" type="CanvasLayer" parent="." unique_id=920034648]
-
-[node name="ExitButton" type="CanvasLayer" parent="." unique_id=1272587052]
-
-[node name="ResetHighscore" type="CanvasLayer" parent="." unique_id=2097350646]
-
-[node name="TutorialButton" type="CanvasLayer" parent="." unique_id=1745793377]
-
-[node name="MuteMusicToggle" type="CanvasLayer" parent="." unique_id=937846266]
-
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=811402547]
+[node name="Enter_Label" type="Label" parent="." unique_id=29811042]
 layout_mode = 0
-offset_left = 351.0
-offset_top = 270.0
+offset_left = 384.0
+offset_top = 392.0
 offset_right = 768.0
-offset_bottom = 391.0
-theme = SubResource("Theme_7m2n1")
-text = "START"
+offset_bottom = 519.0
+theme = SubResource("Theme_cex5h")
+text = "press any key
+to enter"
 horizontal_alignment = 1
 vertical_alignment = 1

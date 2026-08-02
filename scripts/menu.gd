@@ -1,5 +1,7 @@
 extends Control
 
+signal input_detected
+
 func _start_game() -> void:
 	Audiohandler._play_select_sound()
 	Signalbus.round_started.emit()
@@ -31,13 +33,12 @@ func _set_music_button_color() -> void:
 		$MuteMusicToggle/ColorRect.color = Color.from_rgba8(84, 193, 125, 120)
 	else:
 		$MuteMusicToggle/ColorRect.color = Color.from_rgba8(130, 46, 36, 120)
-	
+
+func _input(event: InputEvent) -> void:
+	if not event is InputEventMouse:
+		input_detected.emit()
+
 func _ready() -> void:
 	Audiohandler._play_idle_music()
-	$PlayButton/Button.pressed.connect(_start_game)
-	$ExitButton/Button.pressed.connect(_exit_game)
-	$ResetHighscore/Button.pressed.connect(_reset_highscore)
-	$TutorialButton/Button.pressed.connect(_enter_tutorial)
-	$MuteMusicToggle/Button.pressed.connect(_toggle_music)
-	_set_highscore_label()
-	_set_music_button_color()
+	await input_detected
+	print("go")
