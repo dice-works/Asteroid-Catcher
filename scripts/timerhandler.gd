@@ -8,6 +8,7 @@ var difficulty_scale_rate = 0.05 #percent per second
 var round_timer_on = false
 	
 func _reset_timer() -> void:
+	difficulty_scale_multiplier = 1.0
 	seconds_inside_round = 0.0
 	round_timer_on = false
 

@@ -1,0 +1,18 @@
+[gd_resource type="Theme" format=3 uid="uid://dbg2ngb62bats"]
+
+[ext_resource type="FontFile" uid="uid://dfl6lwm7715cu" path="res://media/visuals/fonts/televideo/Televideo.otf" id="1_5dpts"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_con2f"]
+bg_color = Color(0.3137255, 0.88235295, 0.07058824, 0.3529412)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mhnvy"]
+
+[resource]
+Button/colors/font_color = Color(0.2627451, 0, 0.40392157, 1)
+Button/colors/font_hover_color = Color(0.3137255, 0.88235295, 0.07058824, 1)
+Button/colors/font_outline_color = Color(1, 0, 0.3019608, 1)
+Button/constants/outline_size = 15
+Button/font_sizes/font_size = 100
+Button/fonts/font = ExtResource("1_5dpts")
+Button/styles/hover = SubResource("StyleBoxFlat_con2f")
+Button/styles/normal = SubResource("StyleBoxEmpty_mhnvy")

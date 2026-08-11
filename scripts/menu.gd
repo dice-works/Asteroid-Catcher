@@ -2,75 +2,75 @@ extends Control
 
 signal input_detected
 
+var camera_moving:bool = false
 @onready var camera:Camera2D = $Camera2D
-@onready var camera_size:Vector2 = Vector2(
-	camera.position.x * 2, camera.position.y * 2
-)
+@onready var camera_size = Vector2(
+	camera.position.x * 2, camera.position.y * 2)
+@onready var upper_area_target = Vector2(
+	$SplashScreen/AreaMarker.global_position.x + ($SplashScreen/AreaMarker.size.x / 2), 
+	$SplashScreen/AreaMarker.global_position.y + ($SplashScreen/AreaMarker.size.y / 2))
+@onready var main_area_target = Vector2(
+	$MainMenu/AreaMarker.global_position.x + ($MainMenu/AreaMarker.size.x / 2), 
+	$MainMenu/AreaMarker.global_position.y + ($MainMenu/AreaMarker.size.y / 2))
+@onready var options_area_target = Vector2(
+	$OptionsMenu/AreaMarker.global_position.x + ($OptionsMenu/AreaMarker.size.x / 2), 
+	$OptionsMenu/AreaMarker.global_position.y + ($OptionsMenu/AreaMarker.size.y / 2))
 
 func _hide_editor_area_markers() -> void:
 	$SplashScreen/AreaMarker.visible = false
 	$MainMenu/AreaMarker.visible = false
-	$PlayMenu/AreaMarker.visible = false
-	$OptionsMenu/AreaMarker.visible = false
+	#$OptionsMenu/AreaMarker.visible = false
+	pass
+	
+func _connect_button_signals() -> void:
+	$MainMenu/PlayButton.pressed.connect(
+		_move_camera.bind(upper_area_target, 1))
+	$MainMenu/OptionsButton.pressed.connect(
+		_move_camera.bind(options_area_target, 1))
 
-func _move_camera(distance:float, dimension:String, duration:float) -> void:
+func _move_camera(target:Vector2, duration:float) -> void:
+	camera_moving = true
 	var move_camera_tween = get_tree(
 	).create_tween().bind_node(self).set_ease(
 		Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
-	if dimension == "y":
-		move_camera_tween.tween_property(
-			camera, "position:y", distance, duration).as_relative()
-	elif dimension == "x":
-		move_camera_tween.tween_property(
-			camera, "position:x", distance, duration).as_relative()
+	move_camera_tween.tween_property(
+		camera, "position", target, duration)
 	await move_camera_tween.finished
+	camera_moving = false
 
 func _animate_splash_screen() -> void:
 	$SplashScreen/EnterLabel.visible = false
-	var bounce_up_distance = 50
+	var bounce_up_distance = upper_area_target - Vector2(0, 50)
 	var logo:AnimatedSprite2D = $SplashScreen/Logo
 	logo.play("cut")
-	await _move_camera(-bounce_up_distance, "y", 0.6)
-	_move_camera(bounce_up_distance + camera_size.y, "y", 1.8)
-
-func _start_game() -> void:
-	Audiohandler._play_select_sound()
-	Signalbus.round_started.emit()
-	queue_free()
-		
-func _exit_game() -> void:
-	Director._exit_game()
+	await _move_camera(bounce_up_distance, 0.6)
+	await _move_camera(main_area_target, 1.8)
 	
-func _enter_tutorial() -> void:
-	Audiohandler._play_select_sound()
-	Signalbus.tutorial_entered.emit()
-	queue_free()
+func _replace_splash_with_play() -> void:
+	$SplashScreen.queue_free()
+	var playmenu_instance = preload(
+		"res://scenes/menu_play.tscn").instantiate()
+	add_child(playmenu_instance)
 
-func _reset_highscore() -> void:
-	Audiohandler._play_select_sound()
-	Scorehandler._reset_highscore()
-	_set_highscore_label()
-	
-func _set_highscore_label() -> void:
-	$HighScoreText/Label.text = ("Highscore: " + str(Scorehandler.highscore))
-	
-func _toggle_music() -> void:
-	Audiohandler._play_select_sound()
-	Optionshandler._toggle_music()
-	_set_music_button_color()
-
-func _set_music_button_color() -> void:
-	if Optionshandler.music_option_enabled:
-		$MuteMusicToggle/ColorRect.color = Color.from_rgba8(84, 193, 125, 120)
-	else:
-		$MuteMusicToggle/ColorRect.color = Color.from_rgba8(130, 46, 36, 120)
+func _print_stuff() -> void:
+	print("worked")
 
 func _input(event: InputEvent) -> void:
 	if not event is InputEventMouse:
 		input_detected.emit()
+	if Input.is_action_just_pressed("Down"):
+		_move_camera(main_area_target, 1)
+	elif Input.is_action_just_pressed("Up"):
+		_move_camera(upper_area_target, 1)
+	elif Input.is_action_just_pressed("Left"):
+		_move_camera(options_area_target, 1)
+	elif Input.is_action_just_pressed("Right"):
+		_move_camera(main_area_target, 1)
 
 func _ready() -> void:
 	_hide_editor_area_markers()
 	Audiohandler._play_idle_music()
 	await input_detected
-	_animate_splash_screen()
+	await _animate_splash_screen()
+	_replace_splash_with_play()
+	_connect_button_signals()

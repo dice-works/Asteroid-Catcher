@@ -17,12 +17,14 @@ repeat_size = Vector2(2304, 0)
 [node name="TextureRect" type="TextureRect" parent="farStars" unique_id=507615430]
 offset_right = 2263.0
 offset_bottom = 648.0
+mouse_filter = 2
 texture = ExtResource("1_cbsqf")
 stretch_mode = 1
 
 [node name="TextureRect2" type="TextureRect" parent="farStars" unique_id=585865059]
 offset_top = -648.0
 offset_right = 2304.0
+mouse_filter = 2
 texture = ExtResource("1_cbsqf")
 stretch_mode = 1
 
@@ -30,6 +32,7 @@ stretch_mode = 1
 offset_top = 652.0
 offset_right = 2304.0
 offset_bottom = 1300.0
+mouse_filter = 2
 texture = ExtResource("1_cbsqf")
 stretch_mode = 1
 
@@ -37,6 +40,7 @@ stretch_mode = 1
 offset_top = 1335.0
 offset_right = 2304.0
 offset_bottom = 1983.0
+mouse_filter = 2
 texture = ExtResource("1_cbsqf")
 stretch_mode = 1
 
@@ -47,6 +51,7 @@ repeat_size = Vector2(2304, 0)
 [node name="TextureRect" type="TextureRect" parent="midStars" unique_id=787777762]
 offset_right = 2271.0
 offset_bottom = 652.0
+mouse_filter = 2
 texture = ExtResource("2_wisxt")
 stretch_mode = 1
 
@@ -54,6 +59,7 @@ stretch_mode = 1
 offset_top = 650.0
 offset_right = 2304.0
 offset_bottom = 1302.0
+mouse_filter = 2
 texture = ExtResource("2_wisxt")
 stretch_mode = 1
 
@@ -61,6 +67,7 @@ stretch_mode = 1
 offset_top = 1314.0
 offset_right = 2304.0
 offset_bottom = 1966.0
+mouse_filter = 2
 texture = ExtResource("2_wisxt")
 stretch_mode = 1
 
@@ -68,6 +75,7 @@ stretch_mode = 1
 offset_top = -645.0
 offset_right = 2304.0
 offset_bottom = 7.0
+mouse_filter = 2
 texture = ExtResource("2_wisxt")
 stretch_mode = 1
 
@@ -78,6 +86,7 @@ repeat_size = Vector2(2304, 0)
 [node name="TextureRect" type="TextureRect" parent="closeStars" unique_id=918256825]
 offset_right = 2278.0
 offset_bottom = 660.0
+mouse_filter = 2
 texture = ExtResource("3_wax1t")
 stretch_mode = 1
 
@@ -85,6 +94,7 @@ stretch_mode = 1
 offset_top = 654.0
 offset_right = 2304.0
 offset_bottom = 1314.0
+mouse_filter = 2
 texture = ExtResource("3_wax1t")
 stretch_mode = 1
 
@@ -92,6 +102,7 @@ stretch_mode = 1
 offset_top = -638.0
 offset_right = 2304.0
 offset_bottom = 22.0
+mouse_filter = 2
 texture = ExtResource("3_wax1t")
 stretch_mode = 1
 
@@ -100,6 +111,7 @@ offset_left = -1.0
 offset_top = 1321.0
 offset_right = 2303.0
 offset_bottom = 1981.0
+mouse_filter = 2
 texture = ExtResource("3_wax1t")
 stretch_mode = 1
 

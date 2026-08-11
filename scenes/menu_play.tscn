@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dbh4pad6ixd6x"]
+
+[ext_resource type="Theme" uid="uid://dbg2ngb62bats" path="res://scenes/menu_button.tres" id="1_g30x5"]
+[ext_resource type="Script" uid="uid://du8a6sknhnjf4" path="res://scripts/menu_play.gd" id="1_p6hnj"]
+
+[node name="PlayMenu" type="Node" unique_id=663386836]
+script = ExtResource("1_p6hnj")
+
+[node name="AreaMarker" type="ColorRect" parent="." unique_id=1905366862]
+visible = false
+z_index = -5
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.67058825, 0.32156864, 0.21176471, 1)
+
+[node name="StartButton" type="Button" parent="." unique_id=406558413]
+offset_left = 192.0
+offset_top = 216.0
+offset_right = 960.0
+offset_bottom = 311.0
+theme = ExtResource("1_g30x5")
+text = "start round"
+
+[node name="TutorialButton" type="Button" parent="." unique_id=1957374839]
+offset_left = 192.0
+offset_top = 440.0
+offset_right = 960.0
+offset_bottom = 535.0
+theme = ExtResource("1_g30x5")
+text = "tutorial"

@@ -6,6 +6,13 @@ var asteroidPool = []
 var badAsteroidPool = []
 var tutorial_mode_enabled:bool = false
 
+func _remove_menu() -> void:
+	if get_parent().get_node("Menu") != null:
+		get_parent().get_node("Menu").queue_free()
+		print("removed")
+	else:
+		print("menu not found")
+
 func _instantiate_game() -> void:
 	var player_instance = preload("res://scenes/Player.tscn").instantiate()
 	add_child(player_instance)
@@ -27,6 +34,7 @@ func _instantiate_asteroid_pool() -> void:
 
 func _spawn_asteroid():
 	for asteroid in asteroidPool.filter(func(a): return not a.visible):
+		_set_asteroid_sprite(asteroid)
 		var SpawnPosition = Vector2.ZERO
 		SpawnPosition.x -= padding_x
 		SpawnPosition.y = randi_range(padding_y, (int(get_viewport_rect().size.y) - padding_y))
@@ -41,6 +49,7 @@ func _spawn_asteroid():
 
 func _spawn_bad_asteroid():
 	for badAsteroid in badAsteroidPool.filter(func(a): return not a.visible):
+		_set_asteroid_sprite(badAsteroid)
 		var SpawnPosition = Vector2.ZERO
 		SpawnPosition.x -= padding_x
 		SpawnPosition.y = randi_range(padding_y, (int(get_viewport_rect().size.y) - padding_y))
@@ -51,7 +60,15 @@ func _spawn_bad_asteroid():
 		if tutorial_mode_enabled:
 			badAsteroid.add_to_group("Tutorial")
 		break
-	
+
+func _set_asteroid_sprite(asteroid:Node2D) -> void:
+	var sprite:AnimatedSprite2D = asteroid.get_node("AnimatedSprite2D")
+	var target_frame = randi_range(
+		0, sprite.sprite_frames.get_frame_count(sprite.animation) - 1)
+	sprite.stop()
+	sprite.frame = target_frame
+	print(target_frame, sprite.frame)
+
 func _return_asteroid_to_pool(asteroid):
 	asteroid.visible = false
 	asteroid.should_process = false
@@ -68,6 +85,7 @@ func _check_if_tutorial_mode():
 		_setup_timer_signals()
 	
 func _ready() -> void:
+	_remove_menu()
 	_instantiate_asteroid_pool()
 	Signalbus.return_asteroid_to_pool.connect(_return_asteroid_to_pool)
 	_check_if_tutorial_mode()

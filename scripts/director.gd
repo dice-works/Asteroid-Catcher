@@ -44,11 +44,3 @@ func _ready() -> void:
 	Signalbus.tutorial_entered.connect(_spawn_tutorial)
 	_instantiate_background()
 	_setup_menu()
-
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("Fullscreen") && toggledFullscreen == false:
-		toggledFullscreen = true
-		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_FULLSCREEN)
-	elif Input.is_action_just_pressed("Fullscreen"):
-		toggledFullscreen = false
-		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_WINDOWED)

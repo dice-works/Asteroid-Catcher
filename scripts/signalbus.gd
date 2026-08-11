@@ -11,7 +11,7 @@ signal tutorial_asteroid_missed()
 signal tutorial_badAsteroid_dodged()
 signal tutorial_hit_by_badAsteroid()
 
-# New broad signals
+# broad signals
 signal round_started()
 signal round_ended()
 signal menu_instantiated()
